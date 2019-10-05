@@ -56,9 +56,11 @@ class MLStripper(HTMLParser):
         self.convert_charrefs = True
         self.fed = []
     def get_data(self):
+        """returns output"""
         return ''.join(self.fed)
 
 def strip_tags(html):
+    """html stripper"""
     s_strip = MLStripper()
     s_strip.feed(html)
     return s_strip.get_data()
@@ -91,6 +93,7 @@ DF.head()
 #"""### **TASK 8: Check to see if the length of the word is greater than 2**"""
 
 def check_length(text):
+    """checks length"""
     text = text.split()
     contain = []
 
@@ -140,7 +143,7 @@ DF.head()
 
 #"""### **TASK 11: Finally Snowball Stemming the word**"""
 def snow_stemmer(text):
-
+    """Snowball Stemmer"""
     snowball_stemmer = SnowballStemmer('english')
     word_tokens = nltk.word_tokenize(text)
     stemmed_word = [snowball_stemmer.stem(word) for word in word_tokens]
